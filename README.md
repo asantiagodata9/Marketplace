@@ -1,5 +1,5 @@
 # Marketplace
 
 --------------------------------
-
-![Marketplace](Marketplace/Ad-InFo.drawio.html)
+Arquitectura
+![Marketplace](Marketplace/Ad-InFo.png)
