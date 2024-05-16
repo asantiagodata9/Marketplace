@@ -1,3 +1,3 @@
 # Marketplace
 
-![Diagrama](marketplace/Ad-InFo.png)
+![Diagrama](Marketplace/Ad-InFo.png)
