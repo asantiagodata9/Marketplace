@@ -1,0 +1,17 @@
+name: PF_MGS
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - requests
+  - pandas
+  - jupyter
+  - numpy
+  - boto3
+  - pip:
+    - awswrangler
+    - Flask
+    - python-dotenv
+    - matplotlib
+    - statsmodels
+    - scikit-learn
