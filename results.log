@@ -1,0 +1,5 @@
+botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+root - INFO - DataFrame con las órdenes descargado de S3 guardado en './data/raw/orders.csv'
+root - INFO - DataFrame de entrenamiento guardado en './data/clean/orders_train.csv' y DataFrame de prueba guardado en './data/clean/orders_test.csv'
+root - INFO - Modelo entrenado guardado en './artifacts/models/arima_model.joblib'
+root - INFO - DataFrame de predicciones guardado en './data/clean/orders_pred.csv'
