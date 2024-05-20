@@ -14,7 +14,7 @@ Ad-InFo permite a los usuarios:
 - Optimizar estrategias de precios y promociones con análisis predictivo basado en patrones históricos y condiciones del mercado.
 
 ## Dependencias ##
-XXX
+Las dependencias se enuentran en environment.yml
 
 ## Esctructura ##
 
@@ -70,6 +70,6 @@ Ejucutamos el script main.py para ejecutar el modelo con tres scripts de python 
 - En ./src/pred.py hacemos las prediciones y la guardamos en /data/clean/orders_pred.py.
 
 ## Arquitectura ##
-<pre><code>
-<iframe src="Ad-InFo.drawio.html" width="100%" height="600px"></iframe>
-</code></pre>
+<div style="margin-top: 20px;">
+    <iframe src="Ad-InFo.drawio.html" width="100%" height="600px"></iframe>
+</div>
