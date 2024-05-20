@@ -18,7 +18,8 @@ XXX
 
 ## Esctructura ##
 
-|project_root/
+<pre><code>
+project_root/
     |-- main.py
     |-- MELI - descarga de ventas.ipynb
     |-- data/
@@ -50,19 +51,25 @@ XXX
     |-- Ad-InFo.png
     |-- Ad-InFo.drawio.html
     |-- .gitignore
+</code></pre>
 
 ## Ejecución ##
 
-Hasta ahora el proyecto se divide en cuatro partes:
+1. Decargar los datos usando la api de mercado libre mediante la ejecución del archivo ./MELI - descarga de ventas.ipynb.
+El output se guardará en /data/orders.csv.
 
-En la primera parte se decargan los datos usando la api de mercado libre en el archivo ./MELI - descarga de ventas.ipynb y se guardan en ./data/orders.csv. Se ejecuta este paso corriendo el script ./MELI - descarga de ventas.ipynb
+2. Ejecutar el ETL de la ruta /src/ETL.ipynb, en donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh
+El output se guardará en /data/AWS/orders_clean.csv.
 
-En la segunda parte hacemos un ETL en la ruta ./src/ETL.ipynb donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh, los guardamos en ./data/AWS/orders.py y los cargamos a s3, despues se hace un ELT en la ruta ./src/ELT.ipynb donde descargamos los datos con ayuda de Athena en la ruta ./data/raw/orders.csv. Se ejecuta este paso corriendo los notebooks ./src/ETL.ipynb y ./src/ELT.ipynb 
+3. Posteriormente se carga dicho archivo a s3 con ayuda de Athena en la ruta ./data/raw/orders.csv al ejecutar /src/ELT.ipynb 
 
-En la tercera parte usamos los datos para entrenar un modelo en el notebook ./src/analytics.ipynb. Se ejecuta este paso corriendo el notebook ./src/analytics.ipynb
-
-Finalmente dividimos el entrenamiento del modelo en tres scripts de pythonn preparandolos para usarse en la nube. En ./src/prep.py llamamos los datos desde Athena,los guardamos en ./data/raw/orders.csv y los procesamos y hacemos el train-test split y los guardamos en ./data/clean/orders_train.csv y ./data/clean/orders_test.csv. En ./src/train.py entrenamos el modelo con los datos y guardamos el modelo entrenado en ./artifacts/models/arima_model.joblib. En ./src/pred.py hacemos las prediciones y la guardamos en ./data/clean/orders_pred.py. Ejucutamos todo este paso desde el script main.py
+4. Usamos los datos para entrenar un modelo ejecutando el notebook /src/analytics.ipynb.
+Ejucutamos el script main.py para ejecutar el modelo con tres scripts de python preparandolos para usarse en la nube:
+- En ./src/prep.py llamamos los datos desde Athena,los guardamos en /data/raw/orders.csv. Hacemos el train-test split y los guardamos en /data/clean/orders_train.csv y /data/clean/orders_test.csv.
+- En ./src/train.py entrenamos el modelo con los datos y guardamos el modelo entrenado en ./artifacts/models/arima_model.joblib.
+- En ./src/pred.py hacemos las prediciones y la guardamos en /data/clean/orders_pred.py.
 
 ## Arquitectura ##
-
+<pre><code>
 <iframe src="Ad-InFo.drawio.html" width="100%" height="600px"></iframe>
+</code></pre>
