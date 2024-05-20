@@ -2,8 +2,6 @@
 
 --------------------------------
 
-![Ad-Info](Ad-InFo.png)
-
 ## Objetivo ##
 Adseller, una empresa líder en consultoría, estrategia y gestión de e-commerce y marketplace, anuncia hoy el lanzamiento de "Ad-InFo", una solución revolucionaria diseñada para transformar la manera en que las marcas gestionan y optimizan sus operaciones en plataformas de e-commerce. "Ad-InFo" se sitúa a la vanguardia de la innovación tecnológica, ofreciendo análisis predictivo avanzado y acceso a información de manera cotidiana que empodera a los negocios para anticipar tendencias de mercado y responder con efectividad a las dinámicas cambiantes del comercio electrónico.
 
@@ -70,6 +68,4 @@ Ejucutamos el script main.py para ejecutar el modelo con tres scripts de python 
 - En ./src/pred.py hacemos las prediciones y la guardamos en /data/clean/orders_pred.py.
 
 ## Arquitectura ##
-<div style="margin-top: 20px;">
-    <iframe src="Ad-InFo.drawio.html" width="100%" height="600px"></iframe>
-</div>
+![Ad-Info](Ad-InFo.png)
