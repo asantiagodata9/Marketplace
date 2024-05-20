@@ -59,13 +59,13 @@ El output se guardará en /data/orders.csv.
 2. Ejecutar el ETL de la ruta /src/ETL.ipynb, en donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh
 El output se guardará en /data/AWS/orders_clean.csv.
 
-3. Posteriormente se carga dicho archivo a s3 con ayuda de Athena en la ruta ./data/raw/orders.csv al ejecutar /src/ELT.ipynb 
+3. Posteriormente se carga dicho archivo a s3 con ayuda de Athena al ejecutar /src/ELT.ipynb 
 
-4. Usamos los datos para entrenar un modelo ejecutando el notebook /src/analytics.ipynb.
-Ejucutamos el script main.py para ejecutar el modelo con tres scripts de python preparandolos para usarse en la nube:
+4. Ejecutamos el script main.py para correr el modelo con tres scripts de python preparandolos para usarse en la nube:
 - En ./src/prep.py llamamos los datos desde Athena,los guardamos en /data/raw/orders.csv. Hacemos el train-test split y los guardamos en /data/clean/orders_train.csv y /data/clean/orders_test.csv.
 - En ./src/train.py entrenamos el modelo con los datos y guardamos el modelo entrenado en ./artifacts/models/arima_model.joblib.
 - En ./src/pred.py hacemos las prediciones y la guardamos en /data/clean/orders_pred.py.
+Nota: el notebook completo se encuentra en /src/analytics.ipynb.
 
 ## Arquitectura ##
 ![Ad-Info](Ad-InFo.png)
