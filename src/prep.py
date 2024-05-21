@@ -87,6 +87,9 @@ def process_and_split_data(input_df):
         # Agregar las ventas diarias
         daily_sales = input_df.groupby(input_df['date_created'].dt.date).agg({'total_amount': 'sum'}).reset_index()
         daily_sales.columns = ['date', 'total_sales']
+        
+        sales = input_df.groupby(input_df['date_created'].dt.date).agg({'total_amount': 'sum'}).reset_index()
+        sales.columns = ['date', 'total_sales']
 
         # Asegurarse de que la fecha esté en el índice y establecer la frecuencia
         daily_sales['date'] = pd.to_datetime(daily_sales['date'])
@@ -104,7 +107,7 @@ def process_and_split_data(input_df):
 
         logging.info(f"DataFrame de entrenamiento guardado en './data/clean/orders_train.csv' y DataFrame de prueba guardado en './data/clean/orders_test.csv'")
 
-        return train_data, test_data
+        return sales, train_data, test_data
     except Exception as e:
         logging.error(f"Error al procesar y dividir los datos: {str(e)}")
         raise

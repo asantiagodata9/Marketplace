@@ -14,4 +14,4 @@ dependencies:
     - python-dotenv
     - matplotlib
     - statsmodels
-    - scikit-learn
+    - scikit-lear
