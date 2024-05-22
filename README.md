@@ -53,7 +53,7 @@ project_root/
 
 ## Ejecución ##
 
-1. Decargar los datos usando la api de mercado libre mediante la ejecución del archivo ./MELI - descarga de ventas.ipynb.
+1. Descargar los datos usando la api de mercado libre mediante la ejecución del archivo ./MELI - descarga de ventas.ipynb.
 El output se guardará en /data/orders.csv.
 
 2. Ejecutar el ETL de la ruta /src/ETL.ipynb, en donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh
