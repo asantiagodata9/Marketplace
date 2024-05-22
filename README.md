@@ -14,7 +14,7 @@ Ad-InFo permite a los usuarios:
 ## Dependencias ##
 Las dependencias se enuentran en environment.yml
 
-## Esctructura ##
+## Estructura ##
 
 <pre><code>
 project_root/
