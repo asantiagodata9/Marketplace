@@ -1,21 +1,23 @@
-# Marketplace
+# Arquitectura de Producto de Datos - Proyecto Final
 
 --------------------------------
-Arquitectura
-![Marketplace](Marketplace/Ad-InFo.png)
 
-Hasta ahora el proyecto se divide en cuatro partes:
+## Objetivo ##
+Adseller, una empresa líder en consultoría, estrategia y gestión de e-commerce y marketplace, anuncia hoy el lanzamiento de "Ad-InFo", una solución revolucionaria diseñada para transformar la manera en que las marcas gestionan y optimizan sus operaciones en plataformas de e-commerce. "Ad-InFo" se sitúa a la vanguardia de la innovación tecnológica, ofreciendo análisis predictivo avanzado y acceso a información de manera cotidiana que empodera a los negocios para anticipar tendencias de mercado y responder con efectividad a las dinámicas cambiantes del comercio electrónico.
 
-En la primera parte se decargan los datos usando la api de mercado libre en el archivo ./MELI - descarga de ventas.ipynb y se guardan en ./data/orders.csv. Se ejecuta este paso corriendo el script ./MELI - descarga de ventas.ipynb
+### Características y Beneficios ###
+Ad-InFo permite a los usuarios:
+- Monitorear el rendimiento del producto diariamente con dashboards intuitivos y personalizables.
+- Predecir tendencias de ventas utilizando modelos de machine learning de última generación.
+- Optimizar estrategias de precios y promociones con análisis predictivo basado en patrones históricos y condiciones del mercado.
 
-En la segunda parte hacemos un ETL en la ruta ./src/ETL.ipynb donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh, los guardamos en ./data/AWS/orders.py y los cargamos a s3, despues se hace un ELT en la ruta ./src/ELT.ipynb donde descargamos los datos con ayuda de Athena en la ruta ./data/raw/orders.csv. Se ejecuta este paso corriendo los notebooks ./src/ETL.ipynb y ./src/ELT.ipynb 
+## Dependencias ##
+Las dependencias se enuentran en environment.yml
 
-En la tercera parte usamos los datos para entrenar un modelo en el notebook ./src/analytics.ipynb. Se ejecuta este paso corriendo el notebook ./src/analytics.ipynb
+## Esctructura ##
 
-Finalmente dividimos el entrenamiento del modelo en tres scripts de pythonn preparandolos para usarse en la nube. En ./src/prep.py llamamos los datos desde Athena,los guardamos en ./data/raw/orders.csv y los procesamos y hacemos el train-test split y los guardamos en ./data/clean/orders_train.csv y ./data/clean/orders_test.csv. En ./src/train.py entrenamos el modelo con los datos y guardamos el modelo entrenado en ./artifacts/models/arima_model.joblib. En ./src/pred.py hacemos las prediciones y la guardamos en ./data/clean/orders_pred.py. Ejucutamos todo este paso desde el script main.py
-
-Esctructura de carpetas
-|project_root/
+<pre><code>
+project_root/
     |-- main.py
     |-- MELI - descarga de ventas.ipynb
     |-- data/
@@ -47,3 +49,23 @@ Esctructura de carpetas
     |-- Ad-InFo.png
     |-- Ad-InFo.drawio.html
     |-- .gitignore
+</code></pre>
+
+## Ejecución ##
+
+1. Decargar los datos usando la api de mercado libre mediante la ejecución del archivo ./MELI - descarga de ventas.ipynb.
+El output se guardará en /data/orders.csv.
+
+2. Ejecutar el ETL de la ruta /src/ETL.ipynb, en donde limpiamos los datos llamando dentro del notebook al script ./src/data_preocessing.sh
+El output se guardará en /data/AWS/orders_clean.csv.
+
+3. Posteriormente se carga dicho archivo a s3 con ayuda de Athena al ejecutar /src/ELT.ipynb 
+
+4. Ejecutamos el script main.py para correr el modelo con tres scripts de python preparandolos para usarse en la nube:
+- En ./src/prep.py llamamos los datos desde Athena,los guardamos en /data/raw/orders.csv. Hacemos el train-test split y los guardamos en /data/clean/orders_train.csv y /data/clean/orders_test.csv.
+- En ./src/train.py entrenamos el modelo con los datos y guardamos el modelo entrenado en ./artifacts/models/arima_model.joblib.
+- En ./src/pred.py hacemos las prediciones y la guardamos en /data/clean/orders_pred.py.
+Nota: el notebook completo se encuentra en /src/analytics.ipynb.
+
+## Arquitectura ##
+![Ad-Info](Ad-InFo.png)
